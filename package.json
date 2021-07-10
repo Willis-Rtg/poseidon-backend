@@ -1,0 +1,37 @@
+{
+  "name": "poseidon-backend",
+  "version": "1.0.0",
+  "description": "poseidon-backend with Graphql",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node src/server.js -e js",
+    "migrate": "npx prisma migrate dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Willis-Rtg/poseidon-backend.git"
+  },
+  "author": "Willis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Willis-Rtg/poseidon-backend/issues"
+  },
+  "homepage": "https://github.com/Willis-Rtg/poseidon-backend#readme",
+  "dependencies": {
+    "@prisma/client": "^2.26.0",
+    "apollo-server": "^2.25.2",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "graphql": "^15.5.1",
+    "graphql-tools": "^7.0.5",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.7",
+    "nodemon": "^2.0.9",
+    "prisma": "^2.26.0"
+  }
+}
