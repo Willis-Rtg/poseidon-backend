@@ -10,5 +10,4 @@ export default gql`
     content: String!
     views: Int!
   }
-  scalar DateTime
 `;
