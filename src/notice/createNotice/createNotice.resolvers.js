@@ -5,11 +5,11 @@ export default {
     createNotice: async (_, { title, content }, { loggedInUser }) => {
       if (!loggedInUser) return { ok: false, error: "Need log in" };
       if (loggedInUser.role !== "ADMIN")
-        return { ok: false, error: "This action is allowed to Admin" };
+        return { ok: false, error: "This action is allowed to only Admin" };
       const notice = await client.notice.create({
-        data: { title, content, user: { connect: { id: loggedInUser.id } } },
+        data: { title, content, author: { connect: { id: loggedInUser.id } } },
       });
-      return { ok: true };
+      return { ok: true, id: notice.id };
     },
   },
 };

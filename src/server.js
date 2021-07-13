@@ -1,7 +1,11 @@
 require("dotenv").config();
-import { ApolloServer } from "apollo-server";
+import { ApolloServer } from "apollo-server-express";
+import express from "express";
 import { typeDefs, resolvers } from "./schema";
 import { getUser } from "./users/user.utils";
+import http from "http";
+
+const PORT = process.env.PORT;
 
 const server = new ApolloServer({
   typeDefs,
@@ -12,7 +16,11 @@ const server = new ApolloServer({
     };
   },
 });
+const app = express();
+server.applyMiddleware({ app });
 
-server.listen({ port: 4001 }).then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`);
-});
+const httpServer = http.createServer(app);
+
+httpServer.listen(PORT, () =>
+  console.log(`🚀  Server ready at http://localhost:${PORT}/graphql`)
+);

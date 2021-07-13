@@ -1,14 +1,12 @@
 import { gql } from "apollo-server-express";
 
 export default gql`
-  type Notice {
+  type Faq {
     id: Int!
     createdAt: DateTime!
     updatedAt: DateTime!
-    title: String!
+    question: String!
+    answer: String!
     author: User!
-    content: String!
-    views: Int!
   }
-  scalar DateTime
 `;

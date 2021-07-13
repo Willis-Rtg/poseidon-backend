@@ -2,9 +2,9 @@ import { gql } from "apollo-server-express";
 
 export default gql`
   type Mutation {
-    createNotice(title: String!, content: String!): createNoticeResult
+    createFaq(question: String!, answer: String!): createFaqResult
   }
-  type createNoticeResult {
+  type createFaqResult {
     ok: Boolean!
     error: String
     id: Int
